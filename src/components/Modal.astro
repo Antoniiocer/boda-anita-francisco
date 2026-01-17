@@ -1,0 +1,24 @@
+---
+---
+
+<audio id="player" src="/audio/web-song.mp3"></audio>
+
+<div id="modal" class="fixed inset-0 bg-black/60 flex justify-center items-center z-[200]">
+  <div class="bg-white p-8 rounded-xl text-center min-w-[300px]">
+    <p class="text-lg">¡Bienvenido a mi página!</p>
+    <button id="startButton" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+      Comenzar
+    </button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('modal');
+  const btn = document.getElementById('startButton');
+  const audio = document.getElementById('player');
+
+  btn.onclick = () => {
+    modal.style.display = 'none';
+    audio.play();
+  };
+</script>

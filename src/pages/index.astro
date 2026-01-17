@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from "../components/Header.astro";
+import MainHero from "../components/MainHero.astro";
+import DateHero from "../components/DateHero.astro";
+import LocationHero from "../components/LocationHero.astro";
+import Countdown from "../components/Countdown.astro";
+import OurStory from "../components/OurStory.astro";
+import ScheduleActivities from "../components/ScheduleActivities.astro";
+import HeroTips from "../components/HeroTips.astro";
+import PictureHero from "../components/PictureHero.astro";
+import Carrousel from "../components/Carrousel.astro";
+import Modal from "../components/Modal.astro";
 ---
 
 <Layout>
-	<Welcome />
+    <Header />
+    <section class="flex items-center justify-center flex-col gap-52 mb-40">
+        <MainHero/>
+        <section class="w-full bg-[url(/src/assets/background.jpg)] bg-contain  md:bg-cover flex flex-col items-center justify-center gap-52 mb-40">
+            <DateHero />
+            <LocationHero />
+            <Countdown />
+            <OurStory />
+        </section>
+    </section>
+    <img src="/src/assets/background-crop-top.webp" alt="bg" class="w-full" />
+    <section class="w-full bg-[url(/src/assets/background-accepted.jpg)] bg-contain flex flex-col items-center justify-center gap-52">
+        <ScheduleActivities />
+        <HeroTips />
+        <PictureHero />
+        <Carrousel/>
+    </section>
+    <img src="/src/assets/background-crop-bot.webp" alt="bg" class="w-full" />
+    <Modal />
+
 </Layout>

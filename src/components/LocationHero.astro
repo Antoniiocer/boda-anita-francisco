@@ -1,0 +1,28 @@
+---
+import Dishes from '../assets/dishes.svg'
+import { Icon } from 'astro-icon/components'
+---
+
+
+<section class="container-wide flex items-center justify-around text-primary gap-12 flex-wrap">
+    <div class="flex items-center justify-center flex-col gap-4" >
+        <img src="/src/assets/church.webp" class="w-40 aspect-square scroll-animate-fade-in-left" alt="Iglesia"/>
+        <p class="uppercase tracking-[5px] text-xl font-[500] py-2">iglesia</p>
+        <p class="font-bold">Parroquia Santiago Apóstol</p>
+        <p class="text-center">C. Granada, 78, Distrito Centro, 29015 Málaga</p>
+        <a href="https://maps.app.goo.gl/5Hbo7yMo2j2Ysn6o7" class="bg-secondary text-white px-4 py-2 rounded-3xl flex items-center justify-center gap-2 hover:bg-primary-dark" >
+            <Icon size="20px"  name="mdi:map-marker" />
+            Abrir en Google Maps
+        </a>
+    </div>
+    <div class="flex items-center justify-center flex-col gap-4" >
+        <Dishes class="w-40 aspect-square scroll-animate-fade-in-right"  />
+        <p class="uppercase tracking-[5px] text-xl font-[500] py-2">Celebración</p>
+        <p class="font-bold">Finca Carambuco</p>
+        <p class="text-center">Camino los Naranjos, Parcela 2E, San Bernardo.</p>
+        <a href="https://maps.app.goo.gl/kecgGTY7LacqoUS59" class="bg-secondary text-white px-4 py-2 rounded-3xl flex items-center justify-center gap-2 hover:bg-primary-dark" >
+            <Icon size="20px"  name="mdi:map-marker" />
+            Abrir en Google Maps
+        </a>
+    </div>
+</section>

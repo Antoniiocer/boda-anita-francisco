@@ -1,14 +1,83 @@
+---
+import '../global/styles/custom.css'
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 		<title>Astro Basics</title>
 	</head>
 	<body>
 		<slot />
+        <script>
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+
+                        const el = entry.target;
+
+                        const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+                        const desktopAnimation =
+                            'dataset' in el &&
+                            el.dataset &&
+                            typeof el.dataset === 'object' &&
+                            'desktopAnimation' in el.dataset &&
+                            typeof el.dataset.desktopAnimation === 'string'
+                                ? el.dataset.desktopAnimation
+                                : null;
+                        const shouldShowDesktopAnimation = desktopAnimation && isDesktop;
+                        if (shouldShowDesktopAnimation) {
+                            el.classList.add(desktopAnimation);
+                            el.classList.remove('scroll-animate-fade-in', 'scroll-animate-fade-in-right', 'scroll-animate-fade-in-left');
+                            observer.unobserve(el);
+                            return;
+                        }
+
+                        if (el.classList.contains('scroll-animate-fade-in')) {
+                            el.classList.replace('scroll-animate-fade-in', 'animate-fade-in');
+                        }
+                        if (el.classList.contains('scroll-animate-fade-in-right')) {
+                            el.classList.replace('scroll-animate-fade-in-right', 'animate-fade-in-right');
+                        }
+                        if (el.classList.contains('scroll-animate-fade-in-left')) {
+                            el.classList.replace('scroll-animate-fade-in-left', 'animate-fade-in-left');
+                        }
+
+                        observer.unobserve(el);
+                    });
+                },
+                {
+                    threshold: 0.15,
+                },
+            );
+
+            const initialScrollY = window.scrollY;
+            document
+                .querySelectorAll('.scroll-animate-fade-in, .scroll-animate-fade-in-right, .scroll-animate-fade-in-left')
+                .forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    const elementTop = rect.top + window.scrollY;
+                    if (elementTop < initialScrollY) {
+                        el.classList.remove(
+                            'opacity-0',
+                            'scroll-animate-fade-in',
+                            'scroll-animate-fade-in-right',
+                            'scroll-animate-fade-in-left',
+                        );
+                        return;
+                    }
+
+                    observer.observe(el);
+                });
+        </script>
 	</body>
 </html>
 

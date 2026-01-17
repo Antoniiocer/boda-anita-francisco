@@ -1,0 +1,66 @@
+---
+import CountdownTitle from "../assets/countdown-title.svg"
+---
+
+<script is:inline>
+    const countDownDate = new Date("May 16, 2026 12:00:00").getTime()
+
+    const interval = setInterval(() => {
+        const now = Date.now()
+        const distance = countDownDate - now
+
+        if (distance < 0) {
+            clearInterval(interval)
+            document.getElementById("countdown").textContent = "EXPIRED"
+            return
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+        document.getElementById("days").textContent = `${days}d`;
+        document.getElementById("hours").textContent = `${hours}h`;
+        document.getElementById("minutes").textContent = `${minutes}m`;
+        document.getElementById("seconds").textContent = `${seconds}s`;
+    }, 1000)
+</script>
+
+<section class="container-wide flex items-center justify-center flex-col gap-20">
+    <div class="relative w-full flex flex-col items-center justify-center gap-10">
+        <CountdownTitle class="w-[70%] sm:w-1/2 z-10"/>
+        <img src="/src/assets/flower-2.png" alt="" class="absolute w-20 -rotate-90 top-[-27px] right-[70.5%]" />
+      <p class="text-primary text-center text-lg">¡Cada vez falta menos para celebrar todos juntos este mágico día!</p>
+    </div>
+    <div class="container-wide flex gap-8 items-center justify-center flex-wrap">
+        <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2">
+            <p id="days" class="md:text-6xl text-3xl text-center text-primary"></p>
+            <p class="text-secondary text-center md:text-xl text-md" >
+                Días
+            </p>
+        </div>
+      <div class="border-b-4 border-secondary  md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2">
+            <p id="hours" class="md:text-6xl text-3xl text-center text-primary"></p>
+            <p class="text-secondary text-center md:text-xl text-md" >
+                Horas
+            </p>
+        </div>
+      <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2">
+            <p id="minutes" class="md:text-6xl text-3xl text-center text-primary"></p>
+            <p class="text-secondary text-center md:text-xl text-md" >
+                Minutos
+            </p>
+        </div>
+      <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2">
+            <p id="seconds" class="md:text-6xl text-3xl text-center text-primary"></p>
+            <p class="text-secondary text-center md:text-xl text-md" >
+                Segundos
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+

@@ -1,0 +1,18 @@
+---
+import PictureTitle from "../assets/picture-title.svg";
+import { Icon } from "astro-icon/components";
+---
+
+
+<section class="container-wide flex items-center justify-center w-full flex-col md:flex-row md:gap-10 gap-20" >
+  <PictureTitle class="w-[70%] md:hidden" />
+  <img src="/src/assets/couple-pic-2.jpeg" alt="bg" class="h-[500px] aspect-[3/4] object-cover rounded-2xl" />
+  <div class="flex items-center justify-center flex-col gap-10" >
+    <PictureTitle class="w-1/2 animate-fade-in md:block hidden" />
+    <p class="text-secondary text-lg italic text-center w-1/2" >Sube y comparte con nosotros tus registros de fotos y videos en nuestro álbum de bodas colaborativo</p>
+    <a href="https://photos.app.goo.gl/4DYWXj9VyMwjobpi7" target="_blank" class="bg-secondary px-4 py-2 rounded-3xl text-white flex items-center justify-center gap-2">
+      <Icon name="mdi:camera" />
+      Sube tus fotografias
+    </a>
+  </div>
+</section>

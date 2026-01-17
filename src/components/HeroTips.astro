@@ -1,0 +1,45 @@
+---
+
+---
+
+<script>
+  const button = document.getElementById("toggle-bank")
+  const data = document.getElementById("bank-data")
+
+  button.addEventListener("click", () => {
+    data.classList.toggle("hidden")
+  })
+</script>
+
+
+<section class="container-wide flex justify-around items-center w-full flex-col lg:flex-row gap-20" >
+  <div class="bg-secondary py-8 px-4 rounded-3xl flex items-center justify-center flex-col gap-8 max-w-[85%] md:max-w-[60%] lg:max-w-[30%] min-h-[550px]">
+    <img src="/src/assets/dresscode.webp" alt="" class="h-[160px]" />
+    <p class="text-center text-white text-2xl tracking-[10px] uppercase">
+      Vestimenta
+    </p>
+    <ul class="text-white">
+      <li>Queremos un ambiente <b>alegre</b> y <b>elegante</b>.</li>
+      <li><b>Ellos</b>, con <b>chaqueta</b>; <b>Ellas</b>, con <b>vestidos coloridos</b>, <b>midi</b> o <b>largos</b>.</li>
+      <li>Se recomienda <b>descartar tacón fino</b> por logística del suelo.</li>
+      <li><b>(suelo empedrado/césped)</b></li>
+    </ul>
+  </div>
+  <div class="bg-secondary py-8 px-4 rounded-3xl flex items-center justify-center flex-col gap-8 max-w-[85%] md:max-w-[60%] lg:max-w-[30%] h-[550px]">
+    <img src="/src/assets/present.png" alt="" class="h-[160px]" />
+    <p class="text-center text-white text-2xl tracking-[10px] uppercase">
+      Regalos
+    </p>
+    <p class="text-center text-white">
+      Si quereis contribuir en nuestra luna de miel:
+    </p>
+    <p class="text-center text-white font-bold">Dinero en efectivo es bien recibido</p>
+    <button id="toggle-bank" class="rounded-3xl bg-primary text-white px-4 py-2">Ver datos bancarios</button>
+    <ul id="bank-data" class="text-white text-sm hidden">
+      <li>IBAN: <b>ES87 1583 0001 1191 1334 5764</b></li>
+      <li>Beneficiario: <b>F F Becerra & A C Jurado</b></li>
+    </ul>
+  </div>
+</section>
+
+
