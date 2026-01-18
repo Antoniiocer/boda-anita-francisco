@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Boda Ana y Francisco//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:boda-ana-francisco-20260516@wedding
+DTSTAMP:20260101T120000Z
+DTSTART:20260516T100000Z
+DTEND:20260516T110000Z
+SUMMARY:Boda Ana y Francisco
+LOCATION:C. Granada, 78, Distrito Centro, 29015 Málaga
+DESCRIPTION:Queremos invitarte al dia más importante de nuestras vidas
+END:VEVENT
+END:VCALENDAR
