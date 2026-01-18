@@ -1,4 +1,4 @@
-export async function post({ request }) {
+export async function POST({ request }) {
   try {
     const body = await request.json();
 
