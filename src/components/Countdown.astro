@@ -1,5 +1,6 @@
 ---
 import CountdownTitle from "../../public/images/countdown-title.svg"
+import { Icon } from "astro-icon/components"
 ---
 
 <script is:inline>
@@ -29,37 +30,40 @@ import CountdownTitle from "../../public/images/countdown-title.svg"
 
 <section class="container-wide flex items-center justify-center flex-col gap-20">
     <div class="relative w-full flex flex-col items-center justify-center gap-10">
-        <CountdownTitle class="w-[70%] sm:w-1/2 z-10"/>
+        <CountdownTitle class="w-[70%] sm:w-1/2 z-10 scroll-animate-fade-in"/>
         <img src="/images/flower-2.png" alt="" class="absolute w-20 -rotate-90 top-[-27px] right-[70.5%]" />
       <p class="text-primary text-center text-lg">¡Cada vez falta menos para celebrar todos juntos este mágico día!</p>
     </div>
     <div class="container-wide flex gap-8 items-center justify-center flex-wrap">
-        <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2">
+        <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2 scroll-animate-fade-in-left">
             <p id="days" class="md:text-6xl text-3xl text-center text-primary"></p>
             <p class="text-secondary text-center md:text-xl text-md" >
                 Días
             </p>
         </div>
-      <div class="border-b-4 border-secondary  md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2">
+      <div class="border-b-4 border-secondary  md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2 scroll-animate-fade-in-right">
             <p id="hours" class="md:text-6xl text-3xl text-center text-primary"></p>
             <p class="text-secondary text-center md:text-xl text-md" >
                 Horas
             </p>
         </div>
-      <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2">
+      <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2 scroll-animate-fade-in-left">
             <p id="minutes" class="md:text-6xl text-3xl text-center text-primary"></p>
             <p class="text-secondary text-center md:text-xl text-md" >
                 Minutos
             </p>
         </div>
-      <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2">
+      <div class="border-b-4 border-secondary md:min-w-[175px] min-w-[90px]  flex items-center justify-center flex-col md:h-[170px] h-[100px] gap-4 p-2 scroll-animate-fade-in-right">
             <p id="seconds" class="md:text-6xl text-3xl text-center text-primary"></p>
             <p class="text-secondary text-center md:text-xl text-md" >
                 Segundos
             </p>
         </div>
-      <a href="/boda-ana-francisco.ics" download>Agregar evento a el calendario</a>
     </div>
+  <a class="rounded-3xl bg-primary text-white px-4 py-2 flex items-center justify-center gap-2" href="/boda-ana-francisco.ics" download>
+    <Icon name="mdi:calendar" />
+      Agregar evento a el calendario.
+  </a>
 </section>
 
 
