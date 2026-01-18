@@ -1,0 +1,105 @@
+<form id="rsvpForm" class="bg-background-light p-8 rounded-2xl shadow-lg w-full max-w-md animate-scale-in">
+  <h1 class="text-primary text-2xl text-center mb-6">Confirmación de asistencia</h1>
+
+  <label class="text-primary-dark mt-4 block">Nombre y apellido:</label>
+  <input type="text" id="nombre" class="w-full mt-1 p-2 rounded-lg border border-background-dark focus:outline-none focus:ring-2 focus:ring-accent1" />
+
+  <label class="text-primary-dark mt-4 block">Teléfono:</label>
+  <input type="tel" id="telefono" class="w-full mt-1 p-2 rounded-lg border border-background-dark focus:outline-none focus:ring-2 focus:ring-accent1" />
+
+  <label class="text-primary-dark mt-4 block">¿Asistirás?</label>
+  <div class="flex gap-4 mt-1">
+    <label class="flex items-center gap-1">
+      <input type="radio" name="asistira" value="si" />
+      Si, allí estaré.
+    </label>
+    <label class="flex items-center gap-1">
+      <input type="radio" name="asistira" value="no" />
+      No, lo siento.
+    </label>
+  </div>
+
+  <label class="text-primary-dark mt-4 block">¿Vienes acompañado?</label>
+  <div class="flex gap-4 mt-1">
+    <label class="flex items-center gap-1">
+      <input type="radio" name="acompanado" value="si" />
+      Si
+    </label>
+    <label class="flex items-center gap-1">
+      <input type="radio" name="acompanado" value="no" />
+      No
+    </label>
+  </div>
+
+  <label class="text-primary-dark mt-4 block">Acompañante(s):</label>
+  <input type="text" id="acompanantes" class="w-full mt-1 p-2 rounded-lg border border-secondary focus:outline-none focus:ring-2 focus:ring-secondary-light" placeholder="Separar nombres con comas" />
+
+  <label class="text-primary-dark mt-4 block">Alimentación: ¿Restricciones o alergias?</label>
+  <textarea id="alergias" class="w-full mt-1 p-2 rounded-lg border border-secondary focus:outline-none focus:ring-2 focus:ring-secondary-light" rows="3"></textarea>
+
+  <label class="text-primary-dark mt-4 block">Bebida espirituosa preferente:</label>
+  <div class="flex gap-4 mt-1">
+    <label class="flex items-center gap-1">
+      <input type="radio" name="bebida" value="ron" />
+      Ron
+    </label>
+    <label class="flex items-center gap-1">
+      <input type="radio" name="bebida" value="ginebra" />
+      Ginebra
+    </label>
+    <label class="flex items-center gap-1">
+      <input type="radio" name="bebida" value="whisky" />
+      Whisky
+    </label>
+    <label class="flex items-center gap-1">
+      <input type="radio" name="bebida" value="vodka" />
+      Vodka
+    </label>
+  </div>
+
+  <label class="text-primary-dark mt-4 block">Mensaje para los novios:</label>
+  <textarea id="comentarios" class="w-full mt-1 p-2 rounded-lg border border-secondary focus:outline-none focus:ring-2 focus:ring-secondary-light" rows="3" placeholder="Opcional"></textarea>
+
+  <button type="submit" class="mt-6 w-full bg-secondary hover:bg-secondary-light text-white py-2 rounded-lg transition-colors duration-200">Enviar</button>
+</form>
+
+<script>
+  const form = document.getElementById('rsvpForm');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nombre = document.getElementById('nombre').value;
+    const telefono = document.getElementById('telefono').value;
+    const asistencia = form.querySelector('input[name="asistira"]:checked')?.value || '';
+    const acompanado = form.querySelector('input[name="acompanado"]:checked')?.value || '';
+    const acompanantes = document.getElementById('acompanantes').value;
+    const alergias = document.getElementById('alergias').value;
+    const menu = form.querySelector('input[name="bebida"]:checked')?.value || '';
+    const comentarios = document.getElementById('comentarios').value;
+
+    fetch("https://script.google.com/macros/s/AKfycbwOqLNWDOvosnNunGE7r6SV_2MuYEzBbumG-gAq8bNihGS8gzZBHN68eomKxX9v0Zr_/exec", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nombre,
+        telefono,
+        asistencia,
+        acompanado,
+        acompanantes,
+        alergias,
+        menu,
+        comentarios
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        alert('¡Formulario enviado con éxito!');
+        form.reset();
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Ocurrió un error al enviar el formulario.');
+      });
+  });
+</script>
