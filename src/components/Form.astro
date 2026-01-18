@@ -78,7 +78,7 @@
     const menu = form.querySelector('input[name="bebida"]:checked')?.value || '';
     const comentarios = document.getElementById('comentarios').value;
 
-    fetch("https://script.google.com/macros/s/AKfycbwOqLNWDOvosnNunGE7r6SV_2MuYEzBbumG-gAq8bNihGS8gzZBHN68eomKxX9v0Zr_/exec", {
+    fetch("/api/rsvp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -103,3 +103,4 @@
       });
   });
 </script>
+
