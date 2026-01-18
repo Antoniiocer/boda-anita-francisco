@@ -1,10 +1,15 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind'
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
 
-import icon from 'astro-icon';
+import icon from "astro-icon";
+
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [tailwind(), icon()],
-    base: '/',
+  integrations: [tailwind(), icon()],
+  base: "/",
+  adapter: vercel(),
+  output: "server",
+  site: "https://boda-anita-francisco.vercel.app/",
 });
