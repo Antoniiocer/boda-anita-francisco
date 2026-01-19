@@ -3,7 +3,7 @@
 
 <audio id="player" src="/audio/web-song.mp3"></audio>
 
-<div id="modal" class="fixed inset-0 z-[200] bg-[url(/images/background.jpg)] bg-contain  md:bg-cover flex flex-col items-center justify-start transition-opacity duration-1000 opacity-100">
+<div id="modal" class="fixed inset-0 z-[200] bg-[url(/images/background.jpg)] bg-contain  md:bg-cover flex flex-col items-center justify-start transition-opacity duration-1000 opacity-0">
   <div class="relative container-wide max-w-[343px]">
     <img src="/images/letter.jpeg" alt="" class="w-[343px]" />
     <img src="/images/botanical-seal.png" alt="" class="absolute z-10 w-20 top-[55%] right-[39%]" />
@@ -18,20 +18,25 @@
 
 <script>
   const modal = document.getElementById('modal');
-  const body = document.getElementsByTagName('body')[0];
+  const body = document.body;
   const btn = document.getElementById('startButton');
   const audio = document.getElementById('player');
   const removerDiv = document.getElementById('remover-div');
 
+  requestAnimationFrame(() => {
+    modal.classList.add('opacity-100');
+  });
+
   btn.onclick = () => {
-    modal?.classList.remove('opacity-100');
-    modal?.classList.add('opacity-0');
-    body?.classList.remove('overflow-hidden');
-    removerDiv?.classList.remove('hidden');
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+    body.classList.remove('overflow-hidden');
+    removerDiv.classList.remove('hidden');
 
     setTimeout(() => {
       modal.style.display = 'none';
       audio.play();
-    }, 1000)
+    }, 1000);
   };
 </script>
+
