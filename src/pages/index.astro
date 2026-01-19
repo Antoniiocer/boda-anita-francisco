@@ -16,24 +16,26 @@ import EndHero from "../components/EndHero.astro";
 ---
 
 <Layout>
-    <Header />
-    <section class="flex items-center justify-center flex-col gap-20 mb-20">
-        <MainHero/>
-        <section class="w-full bg-[url(/images/background.jpg)] bg-contain  md:bg-cover flex flex-col items-center justify-center gap-20 mb-20">
-            <DateHero />
-            <LocationHero />
-            <Countdown />
-            <OurStory />
+    <div id="remover-div" class="hidden">
+        <Header />
+        <section class="flex items-center justify-center flex-col gap-20 mb-20">
+            <MainHero/>
+            <section class="w-full bg-[url(/images/background.jpg)] bg-contain  md:bg-cover flex flex-col items-center justify-center gap-20 mb-20">
+                <DateHero />
+                <LocationHero />
+                <Countdown />
+                <OurStory />
+            </section>
         </section>
-    </section>
-    <img src="/images/background-crop-top.webp" alt="bg" class="w-full" />
-    <section class="w-full bg-[url(/images/background-accepted.jpg)] bg-contain flex flex-col items-center justify-center gap-20">
-        <ScheduleActivities />
-        <HeroTips />
-        <PictureHero />
-        <Carrousel/>
-        <Form />
-        <EndHero />
-    </section>
+        <img src="/images/background-crop-top.webp" alt="bg" class="w-full" />
+        <section class="w-full bg-[url(/images/background-accepted.jpg)] bg-contain flex flex-col items-center justify-center gap-20">
+            <ScheduleActivities />
+            <HeroTips />
+            <PictureHero />
+            <Carrousel/>
+            <Form />
+            <EndHero />
+        </section>
+    </div>
     <Modal />
 </Layout>
