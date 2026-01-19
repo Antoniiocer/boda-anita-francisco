@@ -4,26 +4,28 @@
 <audio id="player" src="/audio/web-song.mp3"></audio>
 
 <div id="modal" class="fixed inset-0 z-[200] bg-[url(/images/background.jpg)] bg-contain  md:bg-cover flex flex-col items-center justify-start transition-opacity duration-1000 opacity-100">
-  <div class="relative container-wide">
+  <div class="relative container-wide max-w-[343px]">
     <img src="/images/letter.jpeg" alt="" class="w-[343px]" />
     <img src="/images/botanical-seal.png" alt="" class="absolute z-10 w-20 top-[55%] right-[39%]" />
-    <div class="bg-[url(/images/bone-paper.png)] absolute top-[65%] right-[10%] bg-cover p-8 rounded-xl text-center w-[300px] h-[400px] flex items-center justify-center flex-col">
-      <p class="text-lg text-primary">¡Estas invitado/a a la boda de Ana y Francisco!</p>
+    <div class="bg-[url(/images/bone-paper.png)] absolute top-[65%] right-[12%] bg-contain p-8 rounded-xl text-center w-[250px] h-[330px] flex items-center justify-center flex-col">
+      <p class="text-lg text-primary">¡Estás invitado/a a la boda de Ana y Francisco!</p>
       <button id="startButton" class="mt-4 px-6 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-light">
         Comenzar
       </button>
     </div>
   </div>
-</div>z
+</div>
 
 <script>
   const modal = document.getElementById('modal');
+  const body = document.getElementsByTagName('body')[0];
   const btn = document.getElementById('startButton');
   const audio = document.getElementById('player');
 
   btn.onclick = () => {
     modal?.classList.remove('opacity-100');
     modal?.classList.add('opacity-0');
+    body?.classList.remove('overflow-hidden');
     setTimeout(() => {
       modal.style.display = 'none';
       audio.play();

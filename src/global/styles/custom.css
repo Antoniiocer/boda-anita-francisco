@@ -4,6 +4,8 @@
 
 * {
     font-family: Lora, serif;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 @layer base {
@@ -33,7 +35,13 @@
         @apply max-w-7xl mx-auto px-10 sm:px-8 lg:px-8 py-8 ;
     }
 
-    [class^="scroll-animate"] {
+    .scroll-animate-fade-in {
+        opacity: 0;
+    }
+    .scroll-animate-fade-in-left {
+        opacity: 0;
+    }
+    .scroll-animate-fade-in-right {
         opacity: 0;
     }
 
