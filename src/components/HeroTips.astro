@@ -3,8 +3,8 @@
 ---
 
 <script>
-  const button = document.getElementById("toggle-bank")
-  const data = document.getElementById("bank-data")
+  const button = document.getElementById("toggle-bank")!
+  const data = document.getElementById("bank-data")!
 
   button.addEventListener("click", () => {
     data.classList.toggle("hidden")
@@ -36,7 +36,7 @@
     <ul id="bank-data" class="text-white text-center text-sm hidden">
       <li><p class="text-center text-white font-bold">Dinero en efectivo es bien recibido</p></li>
       <li>IBAN: <b>ES87 1583 0001 1191 1334 5764</b></li>
-      <li>Beneficiario: <b>F F Becerra & A C Jurado</b></li>
+      <li>Beneficiario: <b>ANA CERVANTES JURADO & FRANCISCO FONTIVEROS BECERRA</b></li>
     </ul>
   </div>
 </section>
